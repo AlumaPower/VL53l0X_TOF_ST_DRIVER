@@ -39,12 +39,12 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
-I2C_HandleTypeDef hi2c1;
 
-UART_HandleTypeDef hlpuart1;
 
 /* USER CODE BEGIN PV */
+extern I2C_HandleTypeDef hi2c1;
 
+extern UART_HandleTypeDef hlpuart1;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -153,6 +153,8 @@ while(1)
         	  HAL_Delay(100);
         }
     }
+    //sprintf(MSG, "Message in While\n");
+    //HAL_UART_Transmit(&hlpuart1, MSG, sizeof(MSG) , 100);
 }
     return Status;
 }
@@ -407,7 +409,7 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(B1_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : PF0 PF1 */
+  /*Configure GPIO pins : PF0 PF1 */ //These are the Pins Anthony thought he Configured for
   GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_1;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
